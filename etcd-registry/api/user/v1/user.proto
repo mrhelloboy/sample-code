@@ -1,0 +1,21 @@
+syntax = "proto3";
+package user.v1;
+
+option go_package = "github.com/mrhelloboy/etcd-registry/api/user/v1;user";
+
+service User {
+  rpc GetUser(GetUserRequest) returns (GetUserReply);
+}
+
+message GetUserRequest {
+  int64 id = 1;
+}
+
+message GetUserReply {
+  UserInfo user = 1;
+}
+
+message UserInfo {
+  int64 id = 1;
+  string name = 2;
+}
